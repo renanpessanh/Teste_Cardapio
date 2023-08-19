@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Scanner entrada = new Scanner(System.in);
+        
+        int codigo, quantidade;
+        double preco, totalGeral = 0.0;
+
+            System.out.println("------------------MENU-------------------");
+        do {
+            System.out.println("-----------------------------------------");
+            System.out.println("");
+            System.out.println(" COD   |        PRATO        |    PREÇO");
+            System.out.println("");
+            System.out.println(" 100   |   Cachorro Quente   |    R$1,20 ");
+            System.out.println(" 101   |   Bauru Simples     |    R$1,30 ");
+            System.out.println(" 102   |   Bauru com Ovo     |    R$1,50 ");
+            System.out.println(" 103   |   Hambúrguer        |    R$1,20 ");
+            System.out.println(" 104   |   Cheeseburguer     |    R$1,30 ");
+            System.out.println(" 105   |   Refrigerante      |    R$1,00 ");
+            System.out.println("-----------------------------------------");
+            System.out.println("Informe o código do item escolhido (ou 0 para encerrar o pedido):");
+            System.out.println("");
+            
+            codigo = entrada.nextInt();
+            if (codigo==0){
+                  System.out.println("Programa encerrado");
+            }
+            else
+            if (codigo != 0) {
+                System.out.println("Informe a quantidade desejada:");
+                quantidade = entrada.nextInt();
+
+                if (codigo == 100) { //Cachorro Quente
+                    preco = 1.20;
+                } else if (codigo == 101) { // Bauru Simples
+                    preco = 1.30;
+                } else if (codigo == 102) { //Bauru com Ovo
+                    preco = 1.50;
+                } else if (codigo == 103) { //Hambúrguer
+                    preco = 1.20;
+                } else if (codigo == 104) { //Cheeseburguer
+                    preco = 1.30;
+                } else if (codigo == 105) { //Refrigerante
+                    preco = 1.00;
+                } else {
+                    System.out.println("Código inválido. Tente novamente.");
+                    continue;
+                }
+
+
+                double totalItem = preco * quantidade;
+                System.out.printf("Item %d: %d x R$ %.2f = R$ %.2f", codigo, quantidade, preco, totalItem);
+                totalGeral += totalItem;
+            }
+        } while (codigo != 0);
+
+        
+
+        System.out.printf("Total geral do pedido: R$ %.2f", totalGeral);
+        entrada.close();
+    }
+}
